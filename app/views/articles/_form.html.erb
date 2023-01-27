@@ -1,0 +1,29 @@
+<%# Article form partial %>
+
+<%# Form to create or edit article %>
+<%= form_with model: article do |form| %>
+
+  <%# Title input %>
+  <div>
+    <%= form.label :title %> <br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div> <%= message %> </div>
+    <% end %>
+  </div>
+
+  <%# Body input  %>
+  <div>
+    <%= form.label :body %> <br>
+    <%= form.text_area :body %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div> <%= message %> </div>
+    <% end %>
+  </div>
+  <br>
+
+  <%# Submit button %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
